@@ -14,6 +14,7 @@ jobs:
         Invoke-WebRequest https://raw.githubusercontent.com/discordNoobBots/rdpbettter/main/startup/ngrok.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/discordNoobBots/rdpbettter/main/startup/start.bat -OutFile start.bat
         Invoke-WebRequest https://raw.githubusercontent.com/discordNoobBots/rdpbettter/main/startup/winrar.exe -OutFile winrar.exe
+        Invoke-WebRequest https://valorant.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.live.ap.exe -OutFile valorant.exe
     - name: Extract ngrok Files
       run: Expand-Archive ngrok.zip
 
@@ -35,6 +36,9 @@ jobs:
     - name: Connect to RDP  [CPU 2 Core - 7GB Ram - 256 SSD]
       run: cmd /c start.bat
 
+    - name: Install Valorant
+      run: cmd /c C:\Users\Public\Desktop\valorant.exe valorant.exe /s
+      
     - name: Install Winrar
       run: cmd /c C:\Users\Public\Desktop\winrar.exe winrar.exe /s
       
